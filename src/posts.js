@@ -14,12 +14,16 @@ const Posts = async () => {
     }
   ))
   const body = JSON.stringify(a)
-  const headers = {
-    'Access-Control-Allow-Origin': '*',
-    'content-type': 'application/json'
-  }
+  // console.log(body);
+  // const unquoted = body.replace(/"([^"]+)":/g, '$1:');
+  // console.log(unquoted);
 
-  return new Response(body, { headers })
+  return new Response(body, {
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'content-type': 'application/json',
+    }
+  })
   // return new Response(template(a), {headers})
 }
 
